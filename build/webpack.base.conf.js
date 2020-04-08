@@ -3,7 +3,7 @@ const fs = require('fs')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 // Main const
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#main-const
@@ -49,11 +49,6 @@ module.exports = {
     rules: [{
       test: /\.pug$/,
       oneOf: [
-        // this applies to <template lang="pug"> in Vue components
-        {
-          resourceQuery: /^\?vue/,
-          use: ['pug-plain-loader']
-        },
         // this applies to pug imports inside JavaScript
         {
           use: ['pug-loader']
@@ -64,22 +59,16 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/'
     }, {
-      test: /\.vue$/,
-      loader: 'vue-loader',
-      options: {
-        loader: {
-          scss: 'vue-style-loader!css-loader!sass-loader'
-        }
-      }
-    }, {
-      test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
+      exclude: /\.svg$/,
       options: {
         name: '[name].[ext]'
       }
     }, {
-      test: /\.(png|jpg|gif|svg)$/,
+      test: /\.(png|jpg|gif)$/,
       loader: 'file-loader',
+      exclude: /\.svg$/,
       options: {
         name: '[name].[ext]'
       }
@@ -112,21 +101,29 @@ module.exports = {
           options: { sourceMap: true, config: { path: `./postcss.config.js` } }
         }
       ]
+    }, {
+      test: /\.svg$/,
+      loader: 'svg-sprite-loader',
+      options: {
+        extract: true,
+        publicPath: '../dist/assets/img/svg/'
+      }
     }]
-  },
+  }, 
   resolve: {
     alias: {
-      '~': PATHS.src,
-      'vue$': 'vue/dist/vue.js',
+      '~': PATHS.src
     }
   },
   plugins: [
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
+    new SpriteLoaderPlugin({
+      plainSprite: true
+    }),
     new CopyWebpackPlugin([
-      { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+      { from: `${PATHS.src}/${PATHS.assets}img/content`, to: `${PATHS.assets}img/content` },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
     ]),
