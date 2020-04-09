@@ -85,7 +85,12 @@ module.exports = {
           options: { sourceMap: true, config: { path: `./postcss.config.js` } }
         }, {
           loader: 'sass-loader',
-          options: { sourceMap: true }
+          options: { 
+            sourceMap: true,
+            sassOptions: {
+              includePaths: ["./src/assets/scss", "./node_modules"]
+            }
+          }
         }
       ]
     }, {

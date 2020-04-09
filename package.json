@@ -58,8 +58,9 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "gsap": "^3.2.6",
     "jquery": "^3.4.1",
+    "foundation-sites": "^6.6.2",
+    "gsap": "^3.2.6",
     "scrollmagic": "^2.0.7"
   }
 }

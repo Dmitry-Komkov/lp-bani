@@ -20,3 +20,60 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  @if $size { font-size: $size; }
+  @if $colour { color: $colour; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+}
+
+@mixin hidden {
+	display: none;
+	visibility: hidden;
+}
+
+@mixin visible($state: 'block') {
+	display: unquote($state);
+	visibility: visible;
+}
+
+@mixin abs-position ($top, $right, $bottom, $left) {
+  position: absolute; 
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+  @if ($direction == left) {
+     border-top: $size solid transparent;
+     border-bottom: $size solid transparent; 
+     border-right: $size solid $color;
+  }
+  @else if ($direction == right) {
+     border-top: $size solid transparent;
+     border-bottom: $size solid transparent; 
+     border-left: $size solid $color;
+  }
+  @else if ($direction == down) {
+     border-left: $size solid transparent;
+     border-right: $size solid transparent;
+     border-top: $size solid $color;
+  }
+  @else {
+     border-left: $size solid transparent;
+     border-right: $size solid transparent;
+     border-bottom: $size solid $color;
+  }
+}
