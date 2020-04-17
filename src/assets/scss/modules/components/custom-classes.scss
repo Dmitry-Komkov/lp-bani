@@ -1,0 +1,83 @@
+/*---
+
+ШРИФТЫ
+
+---*/
+
+.text-12 {
+    font-size: rem(12);
+}
+.text-14 {
+    font-size: rem(14);
+}
+.text-20 {
+    font-size: rem(20);
+}
+
+.text-50 {
+    font-size: rem(50);
+}
+// .text-14 {
+//     font-size: rem(14);
+// }
+// .text-14 {
+//     font-size: rem(14);
+// }
+// .text-14 {
+//     font-size: rem(14);
+// }
+// .text-14 {
+//     font-size: rem(14);
+// }
+
+
+.bold {
+    font-weight: 600;
+}
+
+.light {
+    font-weight: 300;
+}
+
+.x-bold {
+    font-weight: 800;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+
+/*---
+
+ССЫЛКИ
+
+---*/
+
+a {
+    color: $mainFontColor
+}
+
+.link-primary {
+    color: $secondary-color;
+}
+
+/*---
+Тень
+---*/
+
+.box-shadow {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+// Background
+
+.bg-center {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hidden {
+    display: none;
+}

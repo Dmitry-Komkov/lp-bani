@@ -1,0 +1,99 @@
+.main-button {
+    position: relative;
+
+    background-color: $primary-color;
+    color: white;
+    
+    border-radius: 3vmin;
+
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+
+    &:after {
+        @include pseudo();
+        @include size(100%, 100%);
+        border-radius: 3vmin;
+        background-color: $secondary-color;
+        bottom: -4px;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.calc-form {
+    z-index: 100;
+    @include abs-pos(50px, 20px);
+    @include size(100px, 100px);
+    max-width: 230px;   max-height: 230px;
+    background-image: url('../img/content/calc-btn.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    cursor: pointer;
+
+    span {
+        text-transform: uppercase;
+        font-size: .8rem;
+        line-height: 1.2;
+        width: 70%;
+        color: white;
+    }
+}
+
+.form-sbmt {
+    position: relative;
+    background-color: #009849;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+
+    // z-index: ;
+
+    &:before {
+        content: '';
+        position: absolute;
+        @include size(100%, 100%);
+        border-radius: 10px;
+        background-color: #028242;
+        bottom: -5px;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.close {
+    position: relative;
+    cursor: pointer;
+
+    @include size(38px, 38px);
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 2px);
+        left: 0;
+
+        width: 38px; height: 4px;
+        background-color: $mainFontColor;
+
+        transform: rotate(-45deg);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 2px);
+        left: 0;
+
+        width: 38px; height: 4px;
+        background-color: $mainFontColor;
+
+        transform: rotate(45deg);
+    }
+}

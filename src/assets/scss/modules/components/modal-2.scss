@@ -1,0 +1,54 @@
+#modal-2 {
+    background-color: #fff;
+    .close {
+        background-color: rgba(#fff, .8);
+        border-radius: 50%;
+    }
+
+    .main-button {
+        width: 100%;
+    }
+
+    .modal__info {
+        padding: 1rem;
+    }
+
+    .info__name {
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    .info__descr {
+        text-indent: 1rem;
+        max-height: 110px;
+    }
+
+    .info__price {
+        text-indent: 1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+}
+
+.modal__swiper-pagination {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+
+    text-align: center;
+    z-index: 999;
+
+    .swiper-pagination-bullet {
+        background-color: transparent;
+        border: 2px solid white;
+        width: 14px; height: 14px;
+        opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: white;
+    }
+    
+}

@@ -1,2 +1,14 @@
 // Fonts here
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#import-js-files
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900&display=swap&subset=cyrillic,cyrillic-ext');
+
+// @font-face {
+//     font-family: 'Roboto', sans-serif;
+//     src: url('/src/assets/fonts/Roboto/Roboto-Black.ttf') format('truetype'),
+//          url('/src/assets/fonts/Roboto/Roboto-Black.woff')  format('woff'),
+//          url('/src/assets/fonts/Roboto/Roboto-Black.woff2') format('woff2'),
+//          url('/src/assets/fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype'),
+//          url('/src/assets/fonts/Roboto/Roboto-BlackItalic.woff')  format('woff'),
+//          url('/src/assets/fonts/Roboto/Roboto-BlackItalic.woff2') format('woff2')
+//   }

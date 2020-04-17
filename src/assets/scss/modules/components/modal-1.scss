@@ -1,0 +1,26 @@
+#modal-1 {
+    
+    .modal-wrapper {
+        background-image: url('../img/content/modal-1-bg-mob.png');
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .modal-container {
+        padding: 5%;
+    }
+
+    .modal__title {
+        text-align: center;
+
+        margin-bottom: 5vmin;
+
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    .main-button {
+        width: 100%;
+    }
+}

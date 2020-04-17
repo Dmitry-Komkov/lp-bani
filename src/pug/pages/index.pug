@@ -1,16 +1,329 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Webpack + Pug';
-  - var description = 'Description for Webpack + Pug';
+  - var title = 'Бани от ПЕтра';
+  - var description = 'купить баню, беседку';
   - var pageClass = 'index-page';
+  - var src = './assets/img/content/';
+
+  - var phone = '8 (916) 444-55-66';
+  - var mail = 'mail@baniotpetra.ru';
+
+  - var tab1Imgs = ['sauna-1.png'];
+  - var tab1Name = ['Дом Сказка'];
+  - var tab1Price = ['200000'];
+  - var tab1Descr = ['Краткое описание'];
+
+  - var aboutInfo = ['Нет необходимости вкладывать лишние деньги. Баня полностью готова к эксплуатации','Вся древесина, при строительстве бани, пилится в экологически чистых районах, что будет положительно воздействовать на организм человека','Для строительства мы выбираем только самый качественный материал','Парную комнату обшиваем только липой','Самые большие перевозные бани','Не оставляем никакого строительного мусора на участке','Лет на рынке','Человек обратилось повторно','Выполненных проектов'];
+
+  - var galleryImgs = ['gallery-1.jpg','gallery-1.jpg'];
+
+  - var questions = ['Сколько дней требуется, чтобы построить баню?','Осуществляете ли вы строительство бань по проектам клиентов?','Какая гарантия распространяется на бани?','Можно ли клиенту использовать при строительстве собственные материалы?'];
+  - var answers = ['1 день','Да, мы практикуем строительство бань, исходя из пожеланий и готовых проектов наших клиентов. Предварительно мы обсуждаем с ними все детали предстоящей работы и предоставляем смету.','5 лет','Да, конечно'];
 
 block content
-  section
-    .container
-      +item('item title', 'item descr')
-      +item('item title', 'item descr')
-      +item('item title', 'item descr')
-      .grid-container
-        .grid-x
-          .cell full
+  section#banner.bg-center
+    .banner__wrapper.grid-container
+      .banner__container
+        .banner__img-container
+          img.banner__img(src=src + "banner-img-mob.png", alt="")
+          .banner__abs-circle
+            +icon('banner-icon-1')
+            p Доставка до 300 км. за МКАД
+        .banner__offer
+          .banner__offer-title
+            p.h1.x-bold успей заказать по низкой цене
+          .banner__offer-subtitle
+            h1 Бани, дома, беседки и садовые домики
+          .banner__offer-button
+            button.button.main-button.modal-1-open(type="button") Заказать прямо сейчас
+          .banner__offer-grid
+            .offer-grid__item
+              .offer-grid__item-icon
+                +icon('offer-icon-1')
+              .offer-grid__item-info
+                p Готовые бани<br>устанавливаем за 1 день
+            .offer-grid__item
+              .offer-grid__item-icon
+                +icon('offer-icon-2')
+              .offer-grid__item-info
+                p Гибкие и<br>доступные<br>цены
+            .offer-grid__item
+              .offer-grid__item-icon
+                +icon('offer-icon-3')
+              .offer-grid__item-info
+                p Все работы<br>делает одна<br>компания
+
+  section#cards
+    .grid-container
+      .tabs-container
+        ul.tabs#tabs(data-tabs)
+          li.tabs-title.is-active
+            a(aria-selected="true" href="#tab1") Бани
+          li.tabs-title
+            a(href="#tab2" data-tabs-target="tab2") Дома
+          li.tabs-title
+            a(href="#tab3" data-tabs-target="tab3") Садовые домики
+          li.tabs-title
+            a(href="#tab4" data-tabs-target="tab4") Беседки
+      .tabs-panel-container
+        .tabs-content(data-tabs-content="tabs")
+          .tabs-panel.is-active#tab1
+            .tab-1-swiper-container.tabs-swiper-container.swiper-container
+              .swiper-wrapper
+                each val, index in tab1Imgs
+                  .tabs-content__slide.swiper-slide
+                    .tabs-content__slide-price
+                      p.slide-price= tab1Price[index]
+                      p рублей
+                    .tabs-content__slide-img
+                      img(src=src + tab1Imgs, alt="")
+                    .tabs-content__slide-descr
+                      .slide-descr__title
+                        p.obj-name= tab1Name[index]
+                      .slide-descr__link
+                        a.slide-btn.modal-2-open(href="javascript:void(0)") Узнать подробнее
+                      .slide-descr.hidden
+                        p.obj-descr= tab1Descr[index]
+              .tab-1-swiper-pagination.swiper-pagination
+
+  section#about.bg-center
+    .grid-container
+      .about-top__container
+        .about-top__img
+          picture
+            source(srcset=src + "winter-house.png" media="(min-width: 768px)")
+            source(srcset=src + "winter-house-m.png")
+            img(alt="", srcset=src + "winter-house-m.png")
+        .about-top__text
+          p Основным направлением деятельности нашей компании является - проектирование и строительство коттеджей и домов под ключ, включая - инженерные работы, ландшафтный дизайн и строительство бассейнов.
+          p Мы строим дома и коттеджи с 2001 года! За все время нашей работы в этой непростой, но такой необходимой области, мы накопили значительный опыт по строительству каменных коттеджей самых различных видов. Специалисты нашей компании выполнят весь комплекс работ любого уровня сложности по строительству коттеджа из кирпича, пеноблоков или керамоблока, в полном соответствии с проектом и строго в указанные сроки.
+          p Услуги по строительству и проектированию коттеджей и загородных домов - это два основных направления компании. Нужно отметить, что оба этих этапа тесно связаны друг с другом, именно поэтому разумнее всего их доверить одному исполнителю.
+      .about-bot__container
+        each val, idx in aboutInfo
+          .about-bot__item
+            .about-bot__item-icon
+              +icon('about-icon-' + idx)
+            .about-bot__item-info
+              p= val
+
+  section#stages.bg-center
+    .grid-container
+      .stages__title
+        p.h2.bold Как мы работаем? Этапы.
+      .stages__grid
+        .stages__item
+          .stage__img
+            img(src=src + "stage-1.png", alt="")
+          .stage__info
+            p Заявка (контакт)
+        .stages__item
+          .stage__img
+            img(src=src + "stage-2.png", alt="")
+          .stage__info
+            p Согласование условий
+        .stages__item
+          .stage__img
+            img(src=src + "stage-3.png", alt="")
+          .stage__info
+            p Доставка (изготовление)
+        .stages__item
+          .stage__img
+            img(src=src + "stage-4.png", alt="")
+          .stage__info
+            p Монтаж
+
+  section#gallery
+    .grid-container.fluid
+      .gallery__sw-container.swiper-container
+        .swiper-wrapper
+          each val in galleryImgs
+            .gallary__item.swiper-slide
+              img(src=src + val, alt="")
+        .gallery__pagination
+    a.calc-form.modal-3-open(href="javascript:void(0)")
+      span Узнать стоимость прямо сейчас
+
+  section#questions.bg-center
+    .grid-container
+      .questions__title
+        h3.bold Часто задаваемые вопросы
+      .questions__tabs-container
+        each val, idx in questions
+          .questions__tab
+            .questions__tab-panel
+              .questions__tab-text
+                p= val
+              .questions__tab-btn
+                +icon('arrow')
+                +icon('arrow-w')
+            .questions__tab-answer
+              p= answers[idx]
+
+  section#feedbacks.bg-center
+    .grid-container
+      .feedbacks__title
+        h3.bold Отзывы, которым можно доверять
+      .feedbacks__swiper.swiper-container
+        .swiper-wrapper
+          .feedback-slide.swiper-slide
+            .feedback-slide__img
+              img(src=src + "fb-1.png", alt="")
+              .feedback-rating
+                span.active
+                span.active
+                span.active
+                span.active
+                span
+            .feedback-slide__info
+              .fb-name
+                p Иванов Иван Иванович
+              .fb-text
+                p Добрый день, Петр! Очень признателен Вашей компании за высокую организацию и качество работ по строительству бани, и лично Вам, как высококвалифицированному специалисту по работе с клиентами! Особо хочется отметить и поблагодарить бригаду (Алексея и Николая) за профессионализм и добросовестное отношение к работе! Спасибо!
+          .feedback-slide.swiper-slide
+            .feedback-slide__img
+              img(src=src + "fb-2.png", alt="")
+              .feedback-rating
+                span.active
+                span.active
+                span.active
+                span.active
+                span.active
+            .feedback-slide__info
+              .fb-name
+                p Иванова Анна Ивановна
+              .fb-text
+                p Добрый день, Петр! Очень признателен Вашей компании за высокую организацию и качество работ по строительству бани, и лично Вам, как высококвалифицированному специалисту по работе с клиентами! Особо хочется отметить и поблагодарить бригаду (Алексея и Николая) за профессионализм и добросовестное отношение к работе! Спасибо!
+        .feedback-button-prev.swiper-button-prev
+        .feedback-button-next.swiper-button-next
+
+  section#contacts
+    .grid-container.fluid
+      .contacts__map
+        #map
+      .contacts__info
+        .contacts-container
+          .contacts-logo
+            img(src=src + "logo.png", alt="")
+          .contacts-item.address
+            .contacts-item__icon
+              +icon('contacts-1', '33px', '35px')
+            .contacts-item__info
+              p.bold Адрес:
+              p.light Большая Тульская улица, 13, Москва, Россия
+          .contacts-item.telephone
+            .contacts-item__icon
+              +icon('contacts-2', '32px', '32px')
+            .contacts-item__info
+              p.bold Телефон:
+              p.light= phone
+          .contacts-item.mail
+            .contacts-item__icon
+              +icon('contacts-3', '36px', '24px')
+            .contacts-item__info
+              p.bold Почта:
+              p.light= mail
+        .contacts-form
+          .form__title
+            p <b>Остались вопросы?</b> Оставь заявку и мы перезвоним в ближайшее время.
+          #form-contacts
+            .input-container
+              input.form-input(type="text", name="name", placeholder="Имя*")
+            .input-container
+              input.form-input(type="tel", name="tel", placeholder="Телефон*")
+            .submit-container
+              button.button.form-sbmt(type="button") Оставить заявку
+
+  section#modal-1.modal
+    .modal-wrapper.bg-center
+      .close-btn__container
+        button.close
+      .modal-container
+        .modal__title
+          p <b>Остались вопросы?</b> Оставь заявку и мы перезвоним в ближайшее время.
+        .modal__form
+          #form-contacts
+              .input-container
+                input.form-input(type="text", name="name", placeholder="Имя*")
+              .input-container
+                input.form-input(type="tel", name="tel", placeholder="Телефон*")
+              .submit-container
+                button.button.main-button(type="button") Оставить заявку
+
+  section#modal-2.modal
+    .modal-wrapper
+      .close-btn__container
+        button.close
+      .modal-container
+        .modal__swiper
+          .modal__swiper-container.swiper-container
+            .modal__swiper-wrapper.swiper-wrapper
+            .modal__swiper-pagination
+        .modal__info
+          .info__name
+            p.name
+          .info__descr
+            p.descr
+          .info__price
+            p.price
+          .info__btn
+            button.button.main-button Оставить заявку
+
+  section#modal-3.modal
+    .modal-wrapper.bg-center
+      .close-btn__container
+        button.close
+      .modal-container
+        .modal__header
+          .header__logo
+            img(src=src + "logo.png", alt="")
+          .header__text
+            p УЗНАЙ Сколько стоит <b>баня под ключ</b> для тебя
+        .modal__body
+          p Сауны и бани в аренду, а уж тем более общественные, - прошлый век, поэтому баня под ключ становится трендом среди счастливых обладателей частных домов и земельных участков. Собственная баня, в которую не требуется запись, с родственниками или друзьями в любой момент, без переживаний за санитарное состояние - просто здорово, плюсом к этому они стоят недорого. Ответь на несколько вопросов и узнай сколько будет стоить построить баню под ключ.
+        .modal__form
+          form#calculate-form
+            .form__promo
+              p Ответьте на вопросы и получите <b>скидку 10%</b>
+            .form-question
+              p Какая площадь Вам нужна?
+            .form-body
+              .questions-container.active
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-1' id="radio_btn-1-1" value="0 - 20 м2" required="required" checked='checked')
+                  label(for="radio_btn-1-1") от 0 до 20 м2
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-1' id="radio_btn-1-2" value="20 - 40 м2")
+                  label(for="radio_btn-1-2") от 20 до 40 м2
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-1' id="radio_btn-1-3" value="40 - 60 м2")
+                  label(for="radio_btn-1-3") от 40 до 60 м2
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-1' id="radio_btn-1-4" value="60 - 80 м2")
+                  label(for="radio_btn-1-4") от 60 до 80 м2
+              .questions-container
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-2' id="radio_btn-2-1" value="0 - 20 м2" required="required" checked='checked')
+                  label(for="radio_btn-2-1") ответ
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-2' id="radio_btn-2-2" value="20 - 40 м2")
+                  label(for="radio_btn-2-2") ответ 1
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-2' id="radio_btn-2-3" value="40 - 60 м2")
+                  label(for="radio_btn-2-3") ответ 2
+                .radio-btn-container
+                  input(type="radio" class="radio__input" name='step-2' id="radio_btn-2-4" value="60 - 80 м2")
+                  label(for="radio_btn-2-4") ответ 3
+              .questions-container.final-step
+                .input-container
+                  input.form-input(type="text", name="name", placeholder="Имя*" required)
+                .input-container
+                  input.form-input(type="tel", name="tel", placeholder="Телефон*" required)
+            .form-footer
+              .form-btn-prev.prev-step
+                i.fa.fa-arrow-left
+              .form-btn-next
+                button.button.main-button.next-step Далее
+                button.button.main-button.calc-form-submit Оставить заявку
+
+        

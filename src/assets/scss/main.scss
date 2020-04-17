@@ -1,4 +1,5 @@
 @import "utils/libs";
+@import "utils/settings";
 @import "utils/vars";
 @import "utils/mixins";
 @import "utils/fonts";
@@ -23,6 +24,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  color: $mainFontColor;
   font-family: $mainFont;
 	font-size: $mainFontSize;
   font-weight: $mainFontWeight;
@@ -56,4 +58,19 @@ ul, li {
 }
 
 // Modules
-// @import "modules/my-module.scss";
+@import "modules/header";
+@import "modules/components/banner";
+@import "modules/components/cards";
+@import "modules/components/about";
+@import "modules/components/stages";
+@import "modules/components/gallery";
+@import "modules/components/questions";
+@import "modules/components/feedbacks";
+@import "modules/components/contacts";
+@import "modules/components/buttons";
+@import "modules/components/custom-classes";
+@import "modules/components/forms";
+@import "modules/components/modal";
+@import "modules/components/modal-1";
+@import "modules/components/modal-2";
+@import "modules/components/modal-3";

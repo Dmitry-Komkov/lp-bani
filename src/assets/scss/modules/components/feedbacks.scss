@@ -1,0 +1,69 @@
+#feedbacks {
+    background-image: url('../img/content/feedbacks-bg-mob.jpg');
+    color: white;
+    padding: 25px 0;
+}
+
+.feedbacks__title {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.feedback-slide {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-slide__img {
+    margin-bottom: 20px;
+}
+
+.feedback-rating {
+    margin: 0 auto;
+
+    span {
+        padding: 0;
+        font-size: 40px;
+        line-height: 1;
+        color: lightgrey;
+        text-shadow: 1px 1px #bbb;
+    }
+
+    & > span:before {
+        content: '★';
+    }
+
+    & > span.active {
+        color: gold;
+	    text-shadow: 1px 1px #c60;
+    }
+}
+
+.fb-name {
+    text-align: center;
+
+    font-size: 1.5rem;
+}
+
+.fb-text {
+    text-align: center;
+
+    font-size: .9rem;
+}
+
+.feedback-button-prev, .feedback-button-next {
+    top: 20%;
+    color: white;
+}
+
+.feedback-button-prev:after {
+    content: url('../img/content/btn-prev.png')
+}
+.feedback-button-next:after {
+    content: url('../img/content/btn-next.png')
+}

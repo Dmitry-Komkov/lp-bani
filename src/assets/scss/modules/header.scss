@@ -1,1 +1,25 @@
 // header style
+
+.header {
+    position: relative;
+    background-color: white;
+    z-index: 99;
+}
+
+.header__phone-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1.5vw;
+}
+.header__phone-icon-container {
+    @include size(14vmin, 14vmin);
+    background-color: $primary-color;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header__phone-info-top, .header__phone-info-bot {
+    line-height: 1;
+}

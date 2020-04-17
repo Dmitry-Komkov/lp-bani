@@ -1,8 +1,3 @@
-mixin item(title, descr)
-  .item
-    h2.item-title= title
-    p.item-descr= descr
-
 mixin icon(name,width,height,fill,mod)
   if(mod)
     svg(style="width:"+width +"; height:"+height +";" class="svg-sprite-icon icon-" + name + ' ' + mod)
@@ -15,7 +10,17 @@ mixin link(href, name)
   //- attributes == {class: "btn"}
   a(class!=attributes.class href=href)= name
 
-mixin list(className, ...items)
-  ul(class=className)
-    each item in items
-      li= item
+
+mixin cards(imgs, name, price)
+  each val, index in imgs
+    .tabs-content__slide.swiper-slide
+      .tabs-content__slide-price
+        p.slide-price= price[index]
+        p рублей
+      .tabs-content__slide-img
+        img(src="", alt="")
+      .tabs-content__slide-descr
+        .slide-descr__title
+          p= name[index]
+        .slide-descr__button
+          a.slide-btn(href="javascript:void(0)") Узнать подробнее

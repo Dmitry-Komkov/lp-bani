@@ -10,6 +10,7 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
+  // foundation: path.join(__dirname, '../node_modules/foundation-sites/js/'),
   assets: 'assets/'
 }
 
@@ -117,7 +118,8 @@ module.exports = {
   }, 
   resolve: {
     alias: {
-      '~': PATHS.src
+      '~': PATHS.src,
+      // '~f': PATsHS.foundation
     }
   },
   plugins: [

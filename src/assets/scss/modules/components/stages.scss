@@ -1,0 +1,75 @@
+#stages {
+    color: white;
+
+    background-image: url('../img/content/stages-bg-mob.jpg');
+
+    padding: 4vmin 0;
+}
+
+.stages__title {
+    text-align: center;
+}
+
+.stages__grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-areas: 
+                        's1 s2'
+                        's4 s3';
+    
+    grid-gap: 40px;
+}
+
+.stages__item {
+    position: relative;
+}
+
+.stages__item:nth-child(1) {
+    grid-area: s1;
+
+    .stage__img:after {
+        @include pseudo(block, absolute, url('../img/content/arrow.png'));
+        top: calc(50% - 36px);
+        right: calc(-20px - 21px);
+        left: auto;
+        @include size(42px, 36px);
+    }
+}
+.stages__item:nth-child(2) {
+    grid-area: s2;
+
+    .stage__img:after {
+        @include pseudo(block, absolute, url('../img/content/arrow.png'));
+        bottom: calc(-20px - 22px);
+        right: calc(50% - 18px);
+        @include size(42px, 36px);
+
+        transform: rotate(90deg);
+    }
+}
+.stages__item:nth-child(3) {
+    grid-area: s3;
+
+    .stage__img:after {
+        @include pseudo(block, absolute, url('../img/content/arrow.png'));
+        top: calc(50% - 36px);
+        right: calc(100%);
+        left: auto;
+        @include size(42px, 36px);
+
+        transform: rotate(180deg);
+    }
+}
+.stages__item:nth-child(4) {
+    grid-area: s4;
+}
+
+.stage__info {
+    text-align: center;
+    p {
+        font-size: clamp(16px, 4vw, 22px);
+        line-height: 1.1;
+    }
+}

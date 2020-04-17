@@ -1,0 +1,111 @@
+// Стили для секции с банером
+
+#banner{
+    padding: 5vh 0;
+    margin-top: -5vh;
+    z-index: 1;
+    position: relative;
+}
+
+.banner__container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.banner__img-container {
+    position: relative;
+}
+
+.banner__abs-circle {
+    @include abs-pos(35vmin, 7vmin);
+    @include size(30vmin, 30vmin);
+    max-width: 153px;
+    max-height: 153px;
+    border-radius: 50%;
+    background-color: rgba($yellow, .9);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .icon-banner-icon-1 {
+        @include size(10vmin, 10vmin);
+        max-width: 50px;
+        max-height: 36px;
+    }
+
+    p {
+        font-size: 4vmin;
+        line-height: 1.1;
+        text-align: center;
+    }
+}
+
+
+.banner__offer-title {
+    p {
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.3;
+    }
+}
+
+.banner__offer-subtitle {
+    margin-bottom: 1.5vh;
+    p {
+        text-align: center;
+    }
+}
+
+.banner__offer-button {
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.banner__offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    grid-gap: 7vmin;
+}
+
+.offer-grid__item {
+    position: relative;
+
+    &:not(:last-child):after {
+        @include pseudo();
+        
+        width: 1px;
+        height: 50%;
+        background-color: $mainFontColor;
+
+        right: calc(-3.5vmin + 1px);
+        bottom: 2vmin;
+    }
+}
+
+.offer-grid__item-icon {
+    position: relative;
+    text-align: center;
+    svg {
+        margin-bottom: 1.4vh;
+    }
+    .icon-offer-icon-1 {
+        @include size(50px, 40px)
+    }
+    .icon-offer-icon-2 {
+        @include size(20px, 40px)
+    }
+    .icon-offer-icon-3 {
+        @include size(90px, 40px)
+    }
+}
+
+.offer-grid__item-info {
+    p {
+        text-align: center;
+        font-size: .8rem;
+        line-height: 1.2;
+    }
+}

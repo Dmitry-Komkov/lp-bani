@@ -1,0 +1,74 @@
+#modal-3 {
+
+    .modal-wrapper {
+        background-color: #fff;
+        background-image: url('../img/content/modal-3-bg-mob.png');
+
+    }
+
+    .modal-container {
+        padding: 2.7rem 1rem 1rem 1rem;
+        position: relative;
+        z-index: 0;
+    }
+
+    .modal__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .header__logo {
+        flex: 0 0 35%;
+        padding: .5rem;
+    }
+
+    .header__text {
+        flex: 0 0 65%;
+        padding: .5rem;
+
+        text-transform: uppercase;
+
+        line-height: 1.2;
+
+        font-size: .9rem;
+    }
+
+    .modal__body {
+        position: relative;
+        left: -1rem;
+        width: calc(100% + 2rem);
+        margin: 0 auto 1rem auto;
+        padding: 1.1rem;
+        background-color: $primary-color;
+        color: white;
+
+        font-size: .9rem;
+        line-height: 1.2;
+    }
+
+    .form-footer {
+        display: grid;
+
+        grid-template-columns: 1fr 4fr;
+
+        align-items: center;
+        grid-gap: 1rem;
+
+        button {
+            width: 100%;
+            margin: -2px 0 0 0;
+        }
+    }
+
+    .form-btn-prev {
+        display: flex;
+        align-items:center;
+        justify-content: center;
+
+        border: 2px solid $mainFontColor;
+        border-radius: .5rem;
+        height: 100%;
+    }
+}

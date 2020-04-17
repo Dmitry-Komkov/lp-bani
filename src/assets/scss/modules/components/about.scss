@@ -1,0 +1,68 @@
+#about {
+    background-image: url('../img/content/about-bg-mob.png');
+
+    padding: 0 0 4vmin 0;
+}
+
+.about-top__text {
+    padding-bottom: 5vmin;
+    border-bottom: 1px solid $mainFontColor;
+    p {
+        text-indent: 1rem;
+        margin-bottom: 1vh;
+        font-size: 1.1rem;
+    }
+}
+
+.about-bot__container {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 5vmin;
+    margin-top: 5vmin;
+}
+
+.about-bot__item {
+    display: flex;
+
+    align-items: center;
+
+
+}
+
+.about-bot__item-icon {
+    flex: 0 0 25%;
+    text-align: center;
+    padding-right: 5vmin;
+}
+.about-bot__item-info {
+    flex: 0 0 75%;
+}
+
+.icon-about-icon-0 {
+    @include size(38px, 43px);
+}
+.icon-about-icon-1 {
+    @include size(43px, 43px);
+}
+.icon-about-icon-2 {
+    @include size(44px, 37px);
+}
+.icon-about-icon-3 {
+    @include size(36px, 43px);
+}
+.icon-about-icon-4 {
+    @include size(47px, 36px);
+}
+.icon-about-icon-5 {
+    @include size(36px, 34px);
+}
+.icon-about-icon-6 {
+    @include size(58px, 25px);
+}
+.icon-about-icon-7 {
+    @include size(58px, 25px);
+}
+.icon-about-icon-8 {
+    @include size(58px, 25px);
+}

@@ -1,0 +1,114 @@
+
+.form-input {
+    background: #F9F9F9;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: $mainFontColor;
+    border: none;
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 10px;
+    font-size: .9rem;
+}
+
+#modal-3 {
+    form {
+        position: relative;
+    }
+    form .form-question {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .questions-container {
+        display: none;
+        transition: display 650ms;
+    }
+    .questions-container.active {
+        display: block;
+        width: 76%;
+    }
+    .questions-container.final-step {
+        width: 100%;
+    }
+
+    .radio-btn-container {
+        position: relative;
+    
+        display: flex;
+        align-items: center;
+    
+        &:not(:last-child) {
+            margin-bottom: .6rem;
+        }
+    }
+
+    .radio-btn-container input[type='radio'] {
+        opacity: 0;
+    }
+
+    .radio-btn-container label {
+
+        line-height: 1.1;
+        
+        padding-left: 1.7rem;
+    
+        display: flex;
+        align-items: center;
+        height: 2.5rem;
+    }
+
+    .radio-btn-container label::before {
+        content: "";
+        display: inline-block;
+    
+        position: absolute;
+        left: 0px;
+        
+        height: 2rem;
+        width: 2rem;
+        
+        border: 3px solid $mainFontColor;
+        border-radius: 100%;
+    }
+
+    .radio-btn-container input[type='radio'] + label::before {
+        background-color: transparent;
+    }
+
+    .radio-btn-container input[type='radio']:checked + label::before {
+        background-color: $primary-color;
+    }
+
+    .form-body {
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .form__promo {
+        position: absolute;
+        z-index: 99;
+        top: 14%; right: -0.7rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 80px; height: 80px;
+        background: linear-gradient(180deg, #FF0000 0%, #9A0909 100%);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 100%;
+
+        padding: 0.8rem;
+
+        font-size: .7rem;
+        text-align: center;
+        line-height: 1.2;
+        color: white;
+    }
+
+    .calc-form-submit {
+        display: none;
+    }
+}
